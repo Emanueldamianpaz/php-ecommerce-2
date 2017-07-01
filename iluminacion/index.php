@@ -1,4 +1,4 @@
-<?php 
+<?php
 define('PATH', '');
 require_once 'start.php';
 
@@ -6,7 +6,7 @@ require_once 'start.php';
 $category = isset($_GET['c']) ? $_GET['c'] : false;
 
 $data = [];
-$sql = 'SELECT p.name as product,
+$sql = 'SELECT p.name as product,x
 				p.id_category as id_category,
 				p.id_product as id_product,
 				p.cost as cost,
@@ -17,16 +17,16 @@ $sql = 'SELECT p.name as product,
 		
 		LEFT JOIN category c ON p.id_category = c.id_category';
 
-if($category) {
-	$sql .= " WHERE p.id_category = $category";
+if ($category) {
+    $sql .= " WHERE p.id_category = $category";
 }
 
-$data['products'] = $db->query( $sql );
-$data['categories'] =$db->query('SELECT c.name, c.id_category 
+$data['products'] = $db->query($sql);
+$data['categories'] = $db->query('SELECT c.name, c.id_category 
                                  FROM category c');
 
 
-view('section/home',$data);
+view('section/home', $data);
 
 
 ?>
