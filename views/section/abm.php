@@ -8,13 +8,12 @@
             </div>
 
             <div class="col-md-9">
-
                 <div class="row">
             
 					<?php foreach ($products as $product): ?>
 
 						<div class="col-sm-4 col-lg-4 col-md-4">
-					  		<? view('components/product-preview',$product) ?>
+					  		<? view('components/product-preview-abm',$product) ?>
                         </div>
 					<?php endforeach ?>  					
                   

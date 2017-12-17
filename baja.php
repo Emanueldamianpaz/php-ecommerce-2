@@ -11,8 +11,8 @@ if(isset($_POST["baja"])){
 
 
     if ($db->query( $sql )) {
-        echo "se borro";
-    }else{
+        header('Location: index.php ');
+        }else{
         echo "fallo";
     };
 };
@@ -30,7 +30,7 @@ if(isset($_POST["baja"])){
     <div class="form-group">
         <label class="control-label col-sm-2" for="product_id">Product_id:</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="product_id" name="product_id" placeholder="product_id">
+            <input type="text" class="form-control" id="product_id" value="<? echo $_GET['id'] ?>" name="product_id" placeholder="product_id">
         </div>
     </div>
 

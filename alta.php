@@ -4,22 +4,24 @@ require_once 'start.php';
 
  view('header');
 
-
-
 if(isset($_POST["agregar"])){
-$sql = "INSERT INTO product  values ("
-.$_POST["product_id"].",'"
-.$_POST["product"]."','"
-.$_POST["description"]."',"
-.$_POST["cost"].",'"
-.$_POST["picture"]."',"
-.$_POST["category_id"].")";
 
-    if ($db->query( $sql )) {
-        echo "se cargo";
-    }else{
-        echo "fallo";
-    };
+
+
+    $image = addslashes(file_get_contents($_FILES['picture']['tmp_name']));
+
+    $sql = "INSERT INTO product  values ("
+    .$_POST["product_id"].",'"
+    .$_POST["product"]."','"
+    .$_POST["description"]."',"
+    .$_POST["cost"].",'{$image}',"
+    .$_POST["category_id"].")";
+
+        if ($db->query( $sql )) {
+            echo "se cargo";
+        }else{
+            echo "fallo";
+        };
 }
 
 
@@ -33,7 +35,7 @@ $sql = "INSERT INTO product  values ("
 
                 <div class="row">
       
-<form class="form-horizontal" method="post">
+<form class="form-horizontal" method="post"  enctype="multipart/form-data">
     <div class="form-group">
         <label class="control-label col-sm-2" for="product_id">Product_id:</label>
         <div class="col-sm-6">
@@ -72,11 +74,9 @@ $sql = "INSERT INTO product  values ("
     <div class="form-group">
         <label class="control-label col-sm-2" for="picture">picture:</label>
         <div class="col-sm-6"> 
-        <input type="text" class="form-control" id="picture" name="picture"  placeholder="picture">
+        <input type="file" class="form-control" id="picture" name="picture"  placeholder="picture">
         </div>
     </div>
-
-
    
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">

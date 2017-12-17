@@ -64,3 +64,8 @@ footer {
     height:250px;
 
 }
+
+img.resize {
+    width:60px; /* you can use % */
+    height: auto;
+}

@@ -48,10 +48,10 @@
                         <a href="alta.php">Alta</a>
                     </li>
                     <li>
-                        <a href="baja.php">Baja</a>
+                        <a href="abm.php">Baja y modificación</a>
                     </li>
                     <li>
-                        <a href="modificar.php">Modificar</a>
+                        <a href="importCsv.php">Importar desde csv</a>
                     </li>
                 </ul>
             </div>
